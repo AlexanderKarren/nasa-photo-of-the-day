@@ -3,14 +3,15 @@ import React from 'react'
 const Photo = (props) => {
     return (
         <div style={PhotoContainer}>
-            <div style={cardContainer}>
+            <div style={cardHeader}>
                 <div>
                     <h2>{props.photo.title}</h2>
                 </div>
             </div>
             <div style={cardContainer}>
-                <div style={imageContainer}><img style={image} src={props.photo.url} alt="APOD"/></div>
+                <img style={image} src={props.photo.url} alt="APOD"/>
                 <div style={infoContainer}>
+                    <h3>{props.photo.date}</h3>
                     <p>{props.photo.explanation}</p>
                 </div>
             </div>
@@ -28,20 +29,27 @@ const PhotoContainer = {
     alignItems: "center",
 }
 
+const cardHeader = {
+    border: "1px solid black",
+    borderBottom: "0",
+    width: "75%",
+    display: "flex",
+    justifyContent: "center"
+}
+
 const cardContainer = {
     border: "1px solid black",
     width: "75%",
     display: "flex",
-}
-
-const imageContainer = {
-    width: "45%",
+    justifyContent: "space-between",
 }
 
 const image = {
-    maxWidth: "100%",
+    width: "50%",
 }
 
 const infoContainer = {
-    width: "55%",
+    width: "50%",
+    fontSize: "80%",
+    padding: "0 10px 0 10px",
 }
