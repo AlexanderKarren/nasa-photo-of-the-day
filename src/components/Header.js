@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const HeaderContainer = styled.div`
@@ -41,12 +42,20 @@ const Header = (props) => {
     return (
         <HeaderContainer>
             <h1>NASA's Astronomy Picture of the Day</h1>
+            <div>
+                <Link style={linkStyle} to="/">APOD</Link> | <Link style={linkStyle} to="/rover">Rover Photos</Link>
+            </div>
             <Form>
                 <input type="date" onChange={handleChange}></input>
                 <Button onClick={handleSubmit}>Go</Button>
             </Form>
         </HeaderContainer>
     )
+}
+
+const linkStyle = {
+    color: "inherit",
+    textDecoration: "none",
 }
 
 export default Header;
